@@ -1,29 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Contact Form</title>
-	<link rel="stylesheet" type="text/css" href="cf.css">
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- VERY IMPORTANT -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+
+    .Contact-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 20px;
+    }
+
+    .Contact-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .Contact-left-title h2 {
+      font-weight: 600;
+      font-size: 40px;
+      color: darkviolet;
+    }
+
+    .Contact-left-title hr {
+      border: solid;
+      width: 110px;
+      height: 5px;
+      margin-bottom: 18px;
+      border-color: darkorange;
+      border-radius: 18px;
+    }
+
+    .Contact-item {
+      border: none;
+      outline: none;
+      color: black;
+      width: 400px;
+      height: 50px;
+      border-radius: 20px;
+      padding-left: 25px;
+      font-weight: 500;
+    }
+
+    .Contact-left textarea.Contact-item {
+      height: 100px;
+      padding-top: 15px;
+    }
+
+    .Contact-item:focus {
+      border: 2px solid orange;
+    }
+
+    .Contact-left button {
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      background: linear-gradient(to bottom right, #ff0066 0%, #ff9900 100%);
+      font-size: 16px;
+      cursor: pointer;
+      gap: 10px;
+    }
+
+    .Contact-left button img {
+      height: 15px;
+    }
+
+    .Contact-right img {
+      width: 500px;
+    }
+
+    /* ✅ MOBILE RESPONSIVE FIX */
+    @media (max-width: 768px) {
+      .Contact-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .Contact-right {
+        display: none !important;
+      }
+
+      .Contact-left {
+        align-items: center;
+      }
+
+      .Contact-item {
+        width: 90vw;
+      }
+
+      .Contact-left button {
+        width: 90vw;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-	<div class="Contact-container">
-		<form action="https://api.web3forms.com/submit" method="POST" class="Contact-left">
-			<div class="Contact-left-title">
-				<h2>
-					Get in touch
-				</h2>
-				<hr>
-			</div>
-			 <input type="hidden" name="access_key" value="4732b5d8-e279-4f03-a5b2-ddf12306d97d">
-			<input type="text" name="Name" placeholder="Your Name" class="Contact-item" required="">
-			<input type="number" name="Mobile no:" placeholder="Mobile number" class="Contact-item" required="">
-			<input type="email" name="email" placeholder="Your Email" class="Contact-item" required="">
-			<textarea name="Address" class="Contact-item" placeholder="Your Address" required=""></textarea>
-			<button type="submit">Submit <img src="ar.png"> 
-			</button>
-		</form>
-		<div class="Contact-right">
-			<img src="right.png">
-		</div>
-	</div>
+  <div class="Contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="Contact-left">
+      <div class="Contact-left-title">
+        <h2>Get in touch</h2>
+        <hr>
+      </div>
+      <input type="hidden" name="access_key" value="4732b5d8-e279-4f03-a5b2-ddf12306d97d">
+      <input type="text" name="Name" placeholder="Your Name" class="Contact-item" required>
+      <input type="number" name="Mobile no:" placeholder="Mobile number" class="Contact-item" required>
+      <input type="email" name="email" placeholder="Your Email" class="Contact-item" required>
+      <textarea name="Address" class="Contact-item" placeholder="Your Address" required></textarea>
+      <button type="submit">Submit <img src="ar.png" alt="arrow"></button>
+    </form>
+    <div class="Contact-right">
+      <img src="right.png" alt="form image">
+    </div>
+  </div>
 </body>
 </html>
